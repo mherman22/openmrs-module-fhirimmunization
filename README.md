@@ -1,5 +1,5 @@
-openmrs-module-basicmodule
-==========================
+openmrs-module-immunizationonfhir
+=================================
 
 Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 5 FHIR v4 Resources.
 
