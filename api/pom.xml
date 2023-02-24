@@ -11,4 +11,11 @@
 	<packaging>jar</packaging>
 	<name>Immunization On Fhir API</name>
 	<description>API project for Immunization On Fhir Module</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -1,6 +1,6 @@
 *.class
-.idea
-.settings
+.idea/
+.settings/
 .project
 .classpath
 target
