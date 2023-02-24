@@ -32,7 +32,8 @@ public class Procedure extends BaseOpenmrsData {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@Column(name = "procedure_id")
+	private Integer id;
 	
 	@Column(name = "status")
 	private String status;

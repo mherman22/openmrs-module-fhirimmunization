@@ -6,35 +6,34 @@
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
  
     <!--
-    	See http://wiki.openmrs.org/display/docs/Module+liquibase+File for 
+    	See http://wiki.openmrs.org/display/docs/Module+liquibase+File for
     	documentation on this file.
-    
+
         See http://www.liquibase.org/manual/home#available_database_refactorings
         for a list of supported elements and attributes
     -->
- 
- 	<!-- Uncomment this and edit the values below to use this file
- 	
-	<changeSet id="mymoduleid-2010-05-25-15:50" author="bwolfe">
+	<changeSet id="procedure-2023-02-24-15:50" author="mherman22">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="mymoduleid_myobject"/></not>
+			<not><tableExists tableName="procedure_tbl"/></not>
 		</preConditions>
 		<comment>
-			Creating the mymoduleid_myobject table
+			Creating the procedure table
 		</comment>
-		<createTable tableName="mymoduleid_myobject">
-			<column name="mymoduleid_myobject_id" type="int">
+		<createTable tableName="procedure_tbl">
+			<column name="procedure_id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="firstname" type="varchar(255)"/>
-			<column name="lastname" type="varchar(255)"/>
-			<column name="username" type="varchar(255)">
-				<constraints unique="true" nullable="false"/>
-			</column>
-			<column name="testid" type="int" />
+			<column name="status" type="varchar(255)"/>
+			<column name="status_reason" type="varchar(255)"/>
+			<column name="category"/>
+            <column name="procedure_code" type="java.lang.String"/>
+            <column name="performer_of_the_procedure" type="Person"/>
+            <column name="recorder_of_the_procedure" type="java.lang.String"/>
+            <column name="location_of_the_procedure"/>
+            <column name="body_site"/>
+            <column name="out_come"/>
+            <column name="subject"/>
+            <column name="encounter"/>
 		</createTable>
     </changeSet>
-    
-    -->
- 
 </databaseChangeLog>
