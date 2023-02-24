@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.immunizationonfhir.web.controller;
+package org.openmrs.module.procedure.web.controller;
 
 import java.util.Collection;
 
@@ -30,17 +30,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * This class configured as controller using annotation and mapped with the URL of
- * 'module/immunizationonfhir/basicmoduleLink.form'.
+ * 'module/procedure/basicmoduleLink.form'.
  */
 @Controller
-@RequestMapping(value = "module/immunizationonfhir/basicmoduleLink.form")
+@RequestMapping(value = "module/procedure/basicmoduleLink.form")
 public class BasicModuleFormController {
 	
 	/** Logger for this class and subclasses */
 	protected final Log log = LogFactory.getLog(getClass());
 	
 	/** Success form view name */
-	private final String SUCCESS_FORM_VIEW = "/module/immunizationonfhir/basicmoduleForm";
+	private final String SUCCESS_FORM_VIEW = "/module/procedure/basicmoduleForm";
 	
 	/**
 	 * Initially called after the formBackingObject method to get the landing form name

@@ -3,19 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>immunizationonfhir</artifactId>
+		<artifactId>procedure</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>immunizationonfhir-omod</artifactId>
+	<artifactId>procedure-omod</artifactId>
 	<packaging>jar</packaging>
-	<name>Immunization On Fhir OMOD</name>
-	<description>OpenMRS module project for Immunization On Fhir Module</description>
+	<name>Procedure OMOD</name>
+	<description>OpenMRS module project for Procedure Module</description>
 
 	<dependencies>
         <dependency>
             <groupId>org.openmrs.module</groupId>
-            <artifactId>immunizationonfhir-api</artifactId>
+            <artifactId>procedure-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 		<dependency>

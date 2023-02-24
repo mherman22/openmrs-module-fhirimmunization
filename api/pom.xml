@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>immunizationonfhir</artifactId>
+		<artifactId>procedure</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>immunizationonfhir-api</artifactId>
+	<artifactId>procedure-api</artifactId>
 	<packaging>jar</packaging>
-	<name>Immunization On Fhir API</name>
-	<description>API project for Immunization On Fhir Module</description>
+	<name>Procedure API</name>
+	<description>API project for procedure Module</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

@@ -11,14 +11,14 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.immunizationonfhir;
+package org.openmrs.module.procedure;
 
 import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openmrs.module.Extension.MEDIA_TYPE;
-import org.openmrs.module.immunizationonfhir.extension.html.AdminList;
+import org.openmrs.module.procedure.extension.html.AdminList;
 
 /**
  * This test validates the AdminList extension class

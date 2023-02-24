@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.immunizationonfhir;
+package org.openmrs.module.procedure;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

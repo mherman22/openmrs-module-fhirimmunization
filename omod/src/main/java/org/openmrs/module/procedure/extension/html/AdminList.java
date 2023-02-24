@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.immunizationonfhir.extension.html;
+package org.openmrs.module.procedure.extension.html;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ import org.openmrs.module.web.extension.AdministrationSectionExt;
 
 /**
  * This class defines the links that will appear on the administration page under the
- * "immunizationonfhir.title" heading. This extension is enabled by defining (uncommenting) it in the
+ * "procedure.title" heading. This extension is enabled by defining (uncommenting) it in the
  * /metadata/config.xml file.
  */
 public class AdminList extends AdministrationSectionExt {
@@ -37,7 +37,7 @@ public class AdminList extends AdministrationSectionExt {
 	 * @see org.openmrs.module.web.extension.AdministrationSectionExt#getTitle()
 	 */
 	public String getTitle() {
-		return "immunizationonfhir.title";
+		return "procedure.title";
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class AdminList extends AdministrationSectionExt {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		
-		map.put("module/immunizationonfhir/basicmoduleLink.form", "immunizationonfhir.replace.this.link.name");
+		map.put("module/procedure/basicmoduleLink.form", "procedure.replace.this.link.name");
 		
 		return map;
 	}

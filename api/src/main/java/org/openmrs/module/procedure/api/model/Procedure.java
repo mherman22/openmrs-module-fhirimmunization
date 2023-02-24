@@ -1,4 +1,4 @@
-package org.openmrs.module.immunizationonfhir.model;
+package org.openmrs.module.procedure.api.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -2,12 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="immunizationonfhir-omod" />
-        <module name="immunizationonfhir-api" />
+        <module name="procedure-omod" />
+        <module name="procedure-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -15,6 +16,9 @@
       <module name="basicmodule-api" target="1.5" />
       <module name="basicmodule-omod" target="1.5" />
       <module name="immuninzationonfhir" target="1.5" />
+      <module name="immunizationonfhir" target="1.5" />
+      <module name="immunizationonfhir-api" target="1.5" />
+      <module name="immunizationonfhir-omod" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
