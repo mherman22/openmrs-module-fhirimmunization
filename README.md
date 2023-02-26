@@ -1,11 +1,11 @@
-openmrs-module-immunizationonfhir
+openmrs-module-procedure
 =================================
 
-Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 5 FHIR v4 Resources.
+Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 5 FHIR v4 Resources. I chose procedure for this case and hopefully i will be able to create a module for it that fits well into the openMRS modular framework.
 
 Description
 -----------
-Immunization module using the immunization fhir resource.
+Procedure module using the immunization fhir resource.
 
 Building from Source
 --------------------
