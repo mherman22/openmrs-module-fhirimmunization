@@ -5,7 +5,7 @@ Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 
 
 Description
 -----------
-Procedure module using the immunization fhir resource.
+Procedure module using the [procedure](https://www.hl7.org/fhir/procedure.html) fhir resource.
 
 Building from Source
 --------------------
