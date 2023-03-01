@@ -1,9 +1,11 @@
-${moduleName}
-==========================
+openmrs-module-procedure
+=================================
+
+Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 5 FHIR v4 Resources. I chose procedure for this case and hopefully i will be able to create a module for it that fits well into the openMRS modular framework.
 
 Description
 -----------
-This is a very basic module which can be used as a starting point in creating a new module.
+Procedure module using the [procedure](https://www.hl7.org/fhir/procedure.html) fhir resource.
 
 Building from Source
 --------------------
@@ -28,3 +30,10 @@ If uploads are not allowed from the web (changable via a runtime property), you 
 into the ~/.OpenMRS/modules folder.  (Where ~/.OpenMRS is assumed to be the Application 
 Data Directory that the running openmrs is currently using.)  After putting the file in there 
 simply restart OpenMRS/tomcat and the module will be loaded and started.
+
+stuff to be done here
+---------------------
+- a POJO which will have all the required and optional properties
+- a liquibase.xml changeset that implements the database table
+- a Hibernate interface and Implementation to CRUD to the database table
+- a Service that provides helper methods to CRUD to the database table
