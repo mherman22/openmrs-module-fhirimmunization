@@ -1,0 +1,12 @@
+/.settings/
+/.idea/
+/omod/target/
+/api/target/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.iml
