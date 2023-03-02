@@ -12,7 +12,7 @@ package org.openmrs.module.procedure.api.dao;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.api.db.hibernate.DbSession;
 import org.openmrs.api.db.hibernate.DbSessionFactory;
-import org.openmrs.module.procedure.Item;
+import org.openmrs.module.procedure.Procedure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,11 +26,11 @@ public class ProcedureDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public Item getItemByUuid(String uuid) {
-		return (Item) getSession().createCriteria(Item.class).add(Restrictions.eq("uuid", uuid)).uniqueResult();
+	public Procedure getItemByUuid(String uuid) {
+		return (Procedure) getSession().createCriteria(Procedure.class).add(Restrictions.eq("uuid", uuid)).uniqueResult();
 	}
 	
-	public Item saveItem(Item item) {
+	public Procedure saveItem(Procedure item) {
 		getSession().saveOrUpdate(item);
 		return item;
 	}

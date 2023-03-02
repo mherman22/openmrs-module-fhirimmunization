@@ -12,7 +12,7 @@ package org.openmrs.module.procedure.api.impl;
 import org.openmrs.api.APIException;
 import org.openmrs.api.UserService;
 import org.openmrs.api.impl.BaseOpenmrsService;
-import org.openmrs.module.procedure.Item;
+import org.openmrs.module.procedure.Procedure;
 import org.openmrs.module.procedure.api.ProcedureService;
 import org.openmrs.module.procedure.api.dao.ProcedureDao;
 
@@ -36,17 +36,42 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 		this.userService = userService;
 	}
 	
+	/**
+	 * Returns an item by uuid. It can be called by any authenticated user. It is fetched in read only transaction.
+	 *
+	 * @param uuid
+	 * @return
+	 * @throws APIException
+	 */
 	@Override
-	public Item getItemByUuid(String uuid) throws APIException {
-		return dao.getItemByUuid(uuid);
+	public Procedure getItemByUuid(String uuid) throws APIException {
+		return null;
 	}
 	
+	/**
+	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with this module's privilege.
+	 * It is executed in a transaction.
+	 *
+	 * @param item
+	 * @return
+	 * @throws APIException
+	 */
 	@Override
-	public Item saveItem(Item item) throws APIException {
-		if (item.getOwner() == null) {
-			item.setOwner(userService.getUser(1));
-		}
-		
-		return dao.saveItem(item);
+	public Procedure saveItem(Procedure item) throws APIException {
+		return null;
 	}
+	
+	//	@Override
+//	public Procedure getItemByUuid(String uuid) throws APIException {
+//		return dao.getItemByUuid(uuid);
+//	}
+	
+//	@Override
+//	public Procedure saveItem(Procedure item) throws APIException {
+//		if (item.getOwner() == null) {
+//			item.setOwner(userService.getUser(1));
+//		}
+//
+//		return dao.saveItem(item);
+//	}
 }
