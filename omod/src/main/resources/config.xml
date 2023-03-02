@@ -8,15 +8,10 @@
 	<version>${project.parent.version}</version>
 	<package>org.openmrs.module.procedure</package>
 	<author>mherman22</author>
-	<description>
-			${project.parent.description}
-	</description>
-
+	<description>${project.parent.description}</description>
 	<activator>org.openmrs.module.procedure.ProcedureActivator</activator>
-	
 	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
 	<!-- /Base Module Properties -->
-	
 	<require_version>2.4.0</require_version>
 	
 	<!-- Extensions -->
