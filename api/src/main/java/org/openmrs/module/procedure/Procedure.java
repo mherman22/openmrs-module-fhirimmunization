@@ -10,15 +10,14 @@
 package org.openmrs.module.procedure;
 
 import org.openmrs.BaseOpenmrsData;
-import org.openmrs.Location;
 import org.openmrs.Patient;
-import org.openmrs.Person;
+import org.openmrs.User;
 
 import java.io.Serializable;
 
 public class Procedure extends BaseOpenmrsData implements Serializable {
 	
-	private Integer id;
+	private Integer procedureId;
 	
 	private String status;
 	
@@ -28,11 +27,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	private String procedureCode;
 	
-	private Person performerOfTheProcedure;
-	
-	private Person recorderOfTheProcedure;
-	
-	private Location locationOfTheProcedure;
+	private User performerOfTheProcedure;
 	
 	private String bodySite;
 	
@@ -42,31 +37,25 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	public Procedure() {
 	}
-	
-	public Procedure(Integer id, String status, String statusReason, String category, String procedureCode,
-			Person performerOfTheProcedure, Person recorderOfTheProcedure, Location locationOfTheProcedure, String bodySite,
-			String outcome, Patient subject) {
-		this.id = id;
+	public Procedure(Integer procedureId, String status, String statusReason, String category, String procedureCode,
+			User performerOfTheProcedure, String bodySite, String outcome, Patient subject) {
+		this.procedureId = procedureId;
 		this.status = status;
 		this.statusReason = statusReason;
 		this.category = category;
 		this.procedureCode = procedureCode;
 		this.performerOfTheProcedure = performerOfTheProcedure;
-		this.recorderOfTheProcedure = recorderOfTheProcedure;
-		this.locationOfTheProcedure = locationOfTheProcedure;
 		this.bodySite = bodySite;
 		this.outcome = outcome;
 		this.subject = subject;
 	}
 	
-	@Override
-	public Integer getId() {
-		return null;
+	public Integer getProcedureId() {
+		return procedureId;
 	}
 	
-	@Override
-	public void setId(Integer integer) {
-	
+	public void setProcedureId(Integer procedureId) {
+		this.procedureId = procedureId;
 	}
 	
 	public String getStatus() {
@@ -101,28 +90,12 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 		this.procedureCode = procedureCode;
 	}
 	
-	public Person getPerformerOfTheProcedure() {
+	public User getPerformerOfTheProcedure() {
 		return performerOfTheProcedure;
 	}
 	
-	public void setPerformerOfTheProcedure(Person performerOfTheProcedure) {
+	public void setPerformerOfTheProcedure(User performerOfTheProcedure) {
 		this.performerOfTheProcedure = performerOfTheProcedure;
-	}
-	
-	public Person getRecorderOfTheProcedure() {
-		return recorderOfTheProcedure;
-	}
-	
-	public void setRecorderOfTheProcedure(Person recorderOfTheProcedure) {
-		this.recorderOfTheProcedure = recorderOfTheProcedure;
-	}
-	
-	public Location getLocationOfTheProcedure() {
-		return locationOfTheProcedure;
-	}
-	
-	public void setLocationOfTheProcedure(Location locationOfTheProcedure) {
-		this.locationOfTheProcedure = locationOfTheProcedure;
 	}
 	
 	public String getBodySite() {
@@ -149,17 +122,31 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 		this.subject = subject;
 	}
 	
+	/**
+	 * @return 
+	 */
+	@Override
+	public Integer getId() {
+		return null;
+	}
+	
+	/**
+	 * @param integer 
+	 */
+	@Override
+	public void setId(Integer integer) {
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "Procedure{" +
-				"id=" + id +
+				"procedureId=" + procedureId +
 				", status='" + status + '\'' +
 				", statusReason='" + statusReason + '\'' +
 				", category='" + category + '\'' +
 				", procedureCode='" + procedureCode + '\'' +
-				", performerOfTheProcedure=" + performerOfTheProcedure +
-				", recorderOfTheProcedure=" + recorderOfTheProcedure +
-				", locationOfTheProcedure=" + locationOfTheProcedure +
+				", performerOfTheProcedure='" + performerOfTheProcedure + '\'' +
 				", bodySite='" + bodySite + '\'' +
 				", outcome='" + outcome + '\'' +
 				", subject=" + subject +
