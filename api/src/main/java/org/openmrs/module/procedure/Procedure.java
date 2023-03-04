@@ -11,6 +11,8 @@ package org.openmrs.module.procedure;
 
 import org.openmrs.BaseOpenmrsData;
 import org.openmrs.Patient;
+import org.openmrs.User;
+
 import java.io.Serializable;
 
 public class Procedure extends BaseOpenmrsData implements Serializable {
@@ -25,7 +27,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	private String procedureCode;
 	
-	private String performerOfTheProcedure;
+	private User performerOfTheProcedure;
 	
 	private String bodySite;
 	
@@ -36,7 +38,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	public Procedure() {
 	}
 	public Procedure(Integer procedureId, String status, String statusReason, String category, String procedureCode,
-			String performerOfTheProcedure, String bodySite, String outcome, Patient subject) {
+			User performerOfTheProcedure, String bodySite, String outcome, Patient subject) {
 		this.procedureId = procedureId;
 		this.status = status;
 		this.statusReason = statusReason;
@@ -88,11 +90,11 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 		this.procedureCode = procedureCode;
 	}
 	
-	public String getPerformerOfTheProcedure() {
+	public User getPerformerOfTheProcedure() {
 		return performerOfTheProcedure;
 	}
 	
-	public void setPerformerOfTheProcedure(String performerOfTheProcedure) {
+	public void setPerformerOfTheProcedure(User performerOfTheProcedure) {
 		this.performerOfTheProcedure = performerOfTheProcedure;
 	}
 	
