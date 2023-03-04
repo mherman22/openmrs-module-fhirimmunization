@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+
+    This Source Code Form is subject to the terms of the Mozilla Public License,
+    v. 2.0. If a copy of the MPL was not distributed with this file, You can
+    obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+    the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+
+    Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+    graphic logo is a trademark of OpenMRS Inc.
+
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.openmrs.module.procedure">
+	<class name="Procedure" table="procedure_tbl">
+
+		<id name="procedureId" type="java.lang.Integer" column="procedure_id">
+			<generator class="native">
+				<param name="sequence">procedure_procedure_id_seq</param>
+			</generator>
+		</id>
+		<property name="status" type="java.lang.String" length="50" column="status"/>
+		<property name="statusReason" type="java.lang.String" length="255" column="status_reason"/>
+		<property name="category" type="java.lang.String" column="category" length="50" />
+		<property name="procedureCode" type="java.lang.Double" column="procedure_code" length="50" />
+		<property name="bodySite" type="java.lang.String" length="50" column="body_site" />
+		<property name="outcome" type="java.lang.String" column="out_come" not-null="true" length="50" />
+		<many-to-one name="subject" class="org.openmrs.Patient">
+			<column name="subject" />
+		</many-to-one>
+		<many-to-one name="performerOfTheProcedure" class="org.openmrs.User">
+			<column name="performer_of_the_Procedure" />
+		</many-to-one>
+
+		<!--  standard OpenmrsMetaData -->
+		<property name="uuid" type="string" length="38" not-null="true" />
+		<property name="description" type="string" />
+
+		<many-to-one name="creator" class="org.openmrs.User"
+		             not-null="true" />
+		<property name="dateCreated" type="java.util.Date" column="date_created"
+		          not-null="true" />
+		<many-to-one name="changedBy" class="org.openmrs.User"
+		             column="changed_by" />
+		<property name="dateChanged" type="java.util.Date" column="date_changed" />
+		<property name="retired" type="java.lang.Boolean" length="1"
+		          not-null="true" />
+		<many-to-one name="retiredBy" class="org.openmrs.User"
+		             column="retired_by" />
+		<property name="dateRetired" type="java.util.Date" column="date_retired" />
+		<property name="retireReason" type="string" column="retire_reason" />
+	</class>
+</hibernate-mapping>

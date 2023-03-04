@@ -4,36 +4,50 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
- 
-    <!--
-    	See http://wiki.openmrs.org/display/docs/Module+liquibase+File for 
-    	documentation on this file.
-    
-        See http://www.liquibase.org/manual/home#available_database_refactorings
-        for a list of supported elements and attributes
-    -->
- 
- 	<!-- Uncomment the changeset below if you want to make the Item class persistable, see also Item and ProcedureDaoTest -->
- 	<!--
-	<changeSet id="procedure-2016-08-02-12-21" author="raff">
-		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="procedure_item"/></not>
-		</preConditions>
-		<comment>
-			Creating the procedure_item table
-		</comment>
-		<createTable tableName="procedure_item">
-			<column name="procedure_item_id" type="int" autoIncrement="true">
-				<constraints primaryKey="true" nullable="false"/>
-			</column>
-			<column name="uuid" type="char(38)">
-				<constraints nullable="false" unique="true"></constraints>
-			</column>
-			<column name="owner" type="int" />
-			<column name="description" type="varchar(255)" />
-		</createTable>
-        <addForeignKeyConstraint constraintName="procedure_item_owner_fk" baseTableName="procedure_item" baseColumnNames="owner"  referencedTableName="users"
+    <changeSet id="procedure-2023-04-03-12-21" author="mherman22">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="procedure_tbl"/></not>
+        </preConditions>
+        <comment>
+            Creating the procedure_tbl table
+        </comment>
+        <createTable tableName="procedure_tbl">
+            <column name="procedure_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_reason" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="procedure_code" type="VARCHAR(50)"/>
+            <column name="body_site" type="VARCHAR(50)"/>
+            <column name="out_come" type="VARCHAR(50)"/>
+            <column name="subject" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="performer_of_the_Procedure" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(38)"/>
+            <column name="creator" type="int"/>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="datetime"/>
+            <column name="retired" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="retired_by" type="int"/>
+            <column name="date_retired" type="datetime"/>
+            <column name="retire_reason" type="VARCHAR(255)"/>
+        </createTable>
+        <addForeignKeyConstraint constraintName="procedure_tbl_fk" baseTableName="procedure_tbl" baseColumnNames="subject"  referencedTableName="users"
                                  referencedColumnNames="user_id" />
-    </changeSet> -->
- 
+    </changeSet>
 </databaseChangeLog>
