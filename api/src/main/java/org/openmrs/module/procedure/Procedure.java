@@ -37,8 +37,9 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	public Procedure() {
 	}
+	
 	public Procedure(Integer procedureId, String status, String statusReason, String category, String procedureCode,
-			User performerOfTheProcedure, String bodySite, String outcome, Patient subject) {
+	    User performerOfTheProcedure, String bodySite, String outcome, Patient subject) {
 		this.procedureId = procedureId;
 		this.status = status;
 		this.statusReason = statusReason;
@@ -123,7 +124,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	}
 	
 	/**
-	 * @return 
+	 * @return
 	 */
 	@Override
 	public Integer getId() {
@@ -131,7 +132,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	}
 	
 	/**
-	 * @param integer 
+	 * @param integer
 	 */
 	@Override
 	public void setId(Integer integer) {
@@ -140,16 +141,9 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Procedure{" +
-				"procedureId=" + procedureId +
-				", status='" + status + '\'' +
-				", statusReason='" + statusReason + '\'' +
-				", category='" + category + '\'' +
-				", procedureCode='" + procedureCode + '\'' +
-				", performerOfTheProcedure='" + performerOfTheProcedure + '\'' +
-				", bodySite='" + bodySite + '\'' +
-				", outcome='" + outcome + '\'' +
-				", subject=" + subject +
-				'}';
+		return "Procedure{" + "procedureId=" + procedureId + ", status='" + status + '\'' + ", statusReason='"
+		        + statusReason + '\'' + ", category='" + category + '\'' + ", procedureCode='" + procedureCode + '\''
+		        + ", performerOfTheProcedure='" + performerOfTheProcedure + '\'' + ", bodySite='" + bodySite + '\''
+		        + ", outcome='" + outcome + '\'' + ", subject=" + subject + '}';
 	}
 }

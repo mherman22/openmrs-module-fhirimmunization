@@ -37,8 +37,9 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	}
 	
 	/**
-	 * Returns an item by uuid. It can be called by any authenticated user. It is fetched in read only transaction.
-	 *
+	 * Returns an item by uuid. It can be called by any authenticated user. It is fetched in read
+	 * only transaction.
+	 * 
 	 * @param uuid
 	 * @return
 	 * @throws APIException
@@ -49,9 +50,9 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	}
 	
 	/**
-	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with this module's privilege.
-	 * It is executed in a transaction.
-	 *
+	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with
+	 * this module's privilege. It is executed in a transaction.
+	 * 
 	 * @param item
 	 * @return
 	 * @throws APIException
@@ -62,16 +63,16 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	}
 	
 	//	@Override
-//	public Procedure getItemByUuid(String uuid) throws APIException {
-//		return dao.getItemByUuid(uuid);
-//	}
+	//	public Procedure getItemByUuid(String uuid) throws APIException {
+	//		return dao.getItemByUuid(uuid);
+	//	}
 	
-//	@Override
-//	public Procedure saveItem(Procedure item) throws APIException {
-//		if (item.getOwner() == null) {
-//			item.setOwner(userService.getUser(1));
-//		}
-//
-//		return dao.saveItem(item);
-//	}
+	//	@Override
+	//	public Procedure saveItem(Procedure item) throws APIException {
+	//		if (item.getOwner() == null) {
+	//			item.setOwner(userService.getUser(1));
+	//		}
+	//
+	//		return dao.saveItem(item);
+	//	}
 }

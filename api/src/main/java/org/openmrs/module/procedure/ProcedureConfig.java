@@ -16,5 +16,6 @@ import org.springframework.stereotype.Component;
  */
 @Component("procedure.ProcedureConfig")
 public class ProcedureConfig {
+	
 	public final static String MODULE_PRIVILEGE = "Procedure Privilege";
 }
