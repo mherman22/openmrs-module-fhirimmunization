@@ -16,6 +16,8 @@ import org.openmrs.module.procedure.Procedure;
 import org.openmrs.module.procedure.api.ProcedureService;
 import org.openmrs.module.procedure.api.dao.ProcedureDao;
 
+import java.util.List;
+
 public class ProcedureServiceImpl extends BaseOpenmrsService implements ProcedureService {
 	
 	ProcedureDao dao;
@@ -37,41 +39,34 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	}
 	
 	/**
-	 * Returns an item by uuid. It can be called by any authenticated user. It is fetched in read only transaction.
-	 *
-	 * @param uuid
-	 * @return
-	 * @throws APIException
+	 * @see ProcedureDao#getProcedureByProcedureId(Integer)
 	 */
 	@Override
-	public Procedure getItemByUuid(String uuid) throws APIException {
-		return null;
+	public Procedure getProcedureByProcedureId(Integer procedureId) throws APIException {
+		return dao.getProcedureByProcedureId(procedureId);
 	}
 	
 	/**
-	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with this module's privilege.
-	 * It is executed in a transaction.
-	 *
-	 * @param item
-	 * @return
-	 * @throws APIException
+	 * @see ProcedureDao#getAllProcedures()
 	 */
 	@Override
-	public Procedure saveItem(Procedure item) throws APIException {
-		return null;
+	public List<Procedure> getAllProcedures() {
+		return dao.getAllProcedures();
 	}
 	
-	//	@Override
-//	public Procedure getItemByUuid(String uuid) throws APIException {
-//		return dao.getItemByUuid(uuid);
-//	}
+	/**
+	 * @see ProcedureDao#saveProcedure(Procedure)
+	 */
+	@Override
+	public Procedure saveProcedure(Procedure procedure) throws APIException {
+		return dao.saveProcedure(procedure);
+	}
 	
-//	@Override
-//	public Procedure saveItem(Procedure item) throws APIException {
-//		if (item.getOwner() == null) {
-//			item.setOwner(userService.getUser(1));
-//		}
-//
-//		return dao.saveItem(item);
-//	}
+	/**
+	 * @see ProcedureDao#purgeProcedure(Procedure)
+	 */
+	@Override
+	public void purgeProcedure(Procedure item) {
+		dao.purgeProcedure(item);
+	}
 }

@@ -15,6 +15,7 @@ import org.openmrs.api.db.hibernate.DbSessionFactory;
 import org.openmrs.module.procedure.Procedure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository("procedure.ProcedureDao")
 public class ProcedureDao {
@@ -26,12 +27,21 @@ public class ProcedureDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public Procedure getItemByUuid(String uuid) {
-		return (Procedure) getSession().createCriteria(Procedure.class).add(Restrictions.eq("uuid", uuid)).uniqueResult();
+	public Procedure getProcedureByProcedureId(Integer procedureId) {
+		return (Procedure) getSession().createCriteria(Procedure.class).add(Restrictions.eq("procedure_id", procedureId))
+		        .uniqueResult();
 	}
 	
-	public Procedure saveItem(Procedure item) {
-		getSession().saveOrUpdate(item);
-		return item;
+	public List<Procedure> getAllProcedures() {
+		return getSession().createCriteria(Procedure.class).list();
+	}
+	
+	public Procedure saveProcedure(Procedure procedure) {
+		getSession().saveOrUpdate(procedure);
+		return procedure;
+	}
+	
+	public void purgeProcedure(Procedure procedure) {
+		getSession().delete(procedure);
 	}
 }

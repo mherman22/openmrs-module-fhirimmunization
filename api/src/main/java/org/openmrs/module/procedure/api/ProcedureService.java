@@ -16,6 +16,8 @@ import org.openmrs.module.procedure.Procedure;
 import org.openmrs.module.procedure.ProcedureConfig;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * The main service of this module, which is exposed for other modules. See
  * moduleApplicationContext.xml on how it is wired up.
@@ -23,26 +25,44 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ProcedureService extends OpenmrsService {
 	
 	/**
-	 * Returns an item by uuid. It can be called by any authenticated user. It is fetched in read
-	 * only transaction.
+	 * Returns a procedure by uuid. It can be called by any authenticated user. It is fetched in
+	 * read only transaction.
 	 * 
-	 * @param uuid
+	 * @param procedureId
 	 * @return
 	 * @throws APIException
 	 */
-	@Authorized()
+//	@Authorized()
 	@Transactional(readOnly = true)
-	Procedure getItemByUuid(String uuid) throws APIException;
+	Procedure getProcedureByProcedureId(Integer procedureId) throws APIException;
 	
 	/**
-	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with
-	 * this module's privilege. It is executed in a transaction.
+	 * returns all the procedures that have been created.
 	 * 
-	 * @param item
+	 * @return
+	 */
+//	@Authorized()
+	@Transactional(readOnly = true)
+	List<Procedure> getAllProcedures();
+	
+	/**
+	 * Saves a procedure. Sets the owner to superuser, if it is not set. It can be called by users
+	 * with this module's privilege. It is executed in a transaction.
+	 * 
+	 * @param procedure
 	 * @return
 	 * @throws APIException
 	 */
-	@Authorized(ProcedureConfig.MODULE_PRIVILEGE)
+//	@Authorized(ProcedureConfig.MODULE_PRIVILEGE)
 	@Transactional
-	Procedure saveItem(Procedure item) throws APIException;
+	Procedure saveProcedure(Procedure procedure) throws APIException;
+	
+	/**
+	 * deletes / purges the specified procedure
+	 * 
+	 * @param procedure
+	 */
+	@Authorized(ProcedureConfig.MODULE_PRIVILEGE)
+	@Transactional(readOnly = true)
+	void purgeProcedure(Procedure procedure);
 }

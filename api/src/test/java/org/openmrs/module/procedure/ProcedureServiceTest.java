@@ -7,20 +7,15 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-package org.openmrs.module.procedure.api;
+package org.openmrs.module.procedure;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.openmrs.User;
 import org.openmrs.api.UserService;
 import org.openmrs.module.procedure.api.dao.ProcedureDao;
 import org.openmrs.module.procedure.api.impl.ProcedureServiceImpl;
-import static org.mockito.Mockito.*;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
 
 /**
  * This is a unit test, which verifies logic in ProcedureService. It doesn't extend
@@ -42,21 +37,21 @@ public class ProcedureServiceTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-//	@Test
-//	public void saveItem_shouldSetOwnerIfNotSet() {
-//		//Given
-//		Item item = new Item();
-//		item.setDescription("some description");
-//
-//		when(dao.saveItem(item)).thenReturn(item);
-//
-//		User user = new User();
-//		when(userService.getUser(1)).thenReturn(user);
-//
-//		//When
-//		basicModuleService.saveItem(item);
-//
-//		//Then
-//		assertThat(item, hasProperty("owner", is(user)));
-//	}
+	//	@Test
+	//	public void saveItem_shouldSetOwnerIfNotSet() {
+	//		//Given
+	//		Item item = new Item();
+	//		item.setDescription("some description");
+	//
+	//		when(dao.saveItem(item)).thenReturn(item);
+	//
+	//		User user = new User();
+	//		when(userService.getUser(1)).thenReturn(user);
+	//
+	//		//When
+	//		basicModuleService.saveItem(item);
+	//
+	//		//Then
+	//		assertThat(item, hasProperty("owner", is(user)));
+	//	}
 }
