@@ -39,3 +39,8 @@ jobs:
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
+      
+    - name: Send data to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+          env_vars: ${{ matrix.platform }}, ${{ matrix.java-version }}
