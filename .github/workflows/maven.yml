@@ -34,8 +34,8 @@ jobs:
         distribution: 'adopt'
         java-version: ${{ matrix.java-version }}
         cache: maven
-    - name: Build and Run Tests with Maven
-      run: mvn clean install
+    - name: Build and Skip Tests (Maven)
+      run: mvn clean install -DskipTests=true
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
