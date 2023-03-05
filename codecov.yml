@@ -14,6 +14,3 @@ coverage:
 
 ignore:
   - "api/src/main/java/org/openmrs/module/procedure/Procedure.java"
-  - "api/src/main/java/org/openmrs/module/procedure/api/ProcedureService.java"
-  - "api/src/main/java/org/openmrs/module/procedure/api/dao/ProcedureDao.java"
-  - "api/src/main/java/org/openmrs/module/procedure/api/impl/ProcedureServiceImpl.java"
