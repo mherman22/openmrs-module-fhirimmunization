@@ -12,7 +12,6 @@ package org.openmrs.module.procedure;
 import org.openmrs.BaseOpenmrsData;
 import org.openmrs.Patient;
 import org.openmrs.User;
-
 import java.io.Serializable;
 
 public class Procedure extends BaseOpenmrsData implements Serializable {
