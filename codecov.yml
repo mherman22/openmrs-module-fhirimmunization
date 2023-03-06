@@ -7,10 +7,17 @@ coverage:
   round: nearest
   range: "75...90"
 
-  status:
+status:
     project: yes
     patch: yes
     changes: no
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: false
 
 ignore:
   - "api/src/main/java/org/openmrs/module/procedure/Procedure.java"
