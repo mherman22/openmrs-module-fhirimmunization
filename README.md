@@ -1,11 +1,7 @@
 openmrs-module-procedure
 =================================
 
-Implement a 3-tier architecture in an OpenMRS module using any level 4 or level 5 FHIR v4 Resources. I chose procedure for this case and hopefully i will be able to create a module for it that fits well into the openMRS modular framework.
-
-Description
------------
-Procedure module using the [procedure](https://www.hl7.org/fhir/procedure.html) fhir resource.
+A [Procedure](https://www.hl7.org/fhir/procedure.html) is an action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
 
 Building from Source
 --------------------
@@ -22,18 +18,21 @@ resources such as jsp or js files without re-installing the module. The deploy p
 where OpenMRS is deployed.
 
 Installation
-------------
+============
+
+Option A
+--------
 1. Build the module to produce the .omod file.
 2. Use the OpenMRS Administration > Manage Modules screen to upload and install the .omod file.
+
+Option B
+--------
+1. Setup a local instance of OpenMRS using [OpenMrs-SDK](https://wiki.openmrs.org/display/docs/OpenMRS+SDK).
+2. cd into `openmrs-module-procedure` and build the module using `mvn clean package`.
+3. Trigger `mvn openmrs-sdk:deploy -DserverId={your-server-name}` which will automaatically your `.omod` file onto your server.
+4. Trigger `mvn openmrs-sdk:run -DserverId={your-server-name}` to start up the server
 
 If uploads are not allowed from the web (changable via a runtime property), you can drop the omod
 into the ~/.OpenMRS/modules folder.  (Where ~/.OpenMRS is assumed to be the Application 
 Data Directory that the running openmrs is currently using.)  After putting the file in there 
 simply restart OpenMRS/tomcat and the module will be loaded and started.
-
-stuff to be done here
----------------------
-- a POJO which will have all the required and optional properties
-- a liquibase.xml changeset that implements the database table
-- a Hibernate interface and Implementation to CRUD to the database table
-- a Service that provides helper methods to CRUD to the database table
