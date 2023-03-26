@@ -29,7 +29,7 @@ Option B
 --------
 1. Setup a local instance of OpenMRS using [OpenMrs-SDK](https://wiki.openmrs.org/display/docs/OpenMRS+SDK).
 2. cd into `openmrs-module-procedure` and build the module using `mvn clean package`.
-3. Trigger `mvn openmrs-sdk:deploy -DserverId={your-server-name}` which will automaatically your `.omod` file onto your server.
+3. Trigger `mvn openmrs-sdk:deploy -DserverId={your-server-name}` which will automatically deploy your `.omod` file onto your server.
 4. Trigger `mvn openmrs-sdk:run -DserverId={your-server-name}` to start up the server
 
 If uploads are not allowed from the web (changable via a runtime property), you can drop the omod
