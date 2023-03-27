@@ -8,8 +8,20 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.module.procedure.web.controller;
-import org.openmrs.module.webservices.rest.web.v1_0.controller.MainResourceController;
 
-public class ProcedureResourceController extends mainResourceController {
-    
+import org.openmrs.module.webservices.rest.web.RestConstants;
+import org.openmrs.module.webservices.rest.web.v1_0.controller.MainResourceController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/rest/" + RestConstants.VERSION_1 + "/procedure")
+public class ProcedureResourceController extends MainResourceController {
+	/**
+	 * @see org.openmrs.module.webservices.rest.web.v1_0.controller.BaseRestController#getNamespace()
+	 */
+	@Override
+	public String getNamespace() {
+		return RestConstants.VERSION_1 + "/procedure";
+	}
 }
