@@ -57,6 +57,10 @@ public interface ProcedureService extends OpenmrsService {
 	@Transactional
 	Procedure saveProcedure(Procedure procedure) throws APIException;
 	
+	@Authorized(ProcedureConfig.MODULE_PRIVILEGE)
+	@Transactional
+	void deleteProcedure(Integer procedureId, String reason);
+	
 	/**
 	 * deletes / purges the specified procedure
 	 * 

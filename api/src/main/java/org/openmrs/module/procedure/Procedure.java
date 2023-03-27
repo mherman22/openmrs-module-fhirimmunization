@@ -9,7 +9,7 @@
  */
 package org.openmrs.module.procedure;
 
-import org.openmrs.BaseOpenmrsData;
+import org.openmrs.BaseChangeableOpenmrsMetadata;
 import org.openmrs.Patient;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ import java.io.Serializable;
  * performed by a healthcare professional, a service provider, a friend or relative or in some cases
  * by the patient themselves.
  */
-public class Procedure extends BaseOpenmrsData implements Serializable {
+public class Procedure extends BaseChangeableOpenmrsMetadata implements Serializable {
 	
 	private Integer procedureId;
 	

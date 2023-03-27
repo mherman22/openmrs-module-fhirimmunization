@@ -9,6 +9,7 @@
  */
 package org.openmrs.module.procedure.api.impl;
 
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.openmrs.api.APIException;
 import org.openmrs.api.UserService;
 import org.openmrs.api.impl.BaseOpenmrsService;
@@ -16,6 +17,7 @@ import org.openmrs.module.procedure.Procedure;
 import org.openmrs.module.procedure.api.ProcedureService;
 import org.openmrs.module.procedure.api.dao.ProcedureDao;
 
+import java.util.Date;
 import java.util.List;
 
 public class ProcedureServiceImpl extends BaseOpenmrsService implements ProcedureService {
@@ -43,6 +45,9 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	 */
 	@Override
 	public Procedure getProcedureByProcedureId(Integer procedureId) throws APIException {
+		if (procedureId == null) {
+			throw new ResourceNotFoundException("procedure with given id " + procedureId + " not found");
+		}
 		return dao.getProcedureByProcedureId(procedureId);
 	}
 	
@@ -60,6 +65,23 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 	@Override
 	public Procedure saveProcedure(Procedure procedure) throws APIException {
 		return dao.saveProcedure(procedure);
+	}
+	
+	/**
+	 * @param procedureId
+	 * @param reason
+	 */
+	@Override
+	public void deleteProcedure(Integer procedureId, String reason) {
+		Procedure procedure = dao.getProcedureByProcedureId(procedureId);
+		if (procedure == null) {
+			throw new ResourceNotFoundException("Resource not found");
+		}
+		procedure.setRetired(true);
+		procedure.setDateRetired(new Date());
+		procedure.setRetireReason(reason);
+		procedure.setRetiredBy(org.openmrs.api.context.Context.getAuthenticatedUser());
+		dao.saveProcedure(procedure);
 	}
 	
 	/**
