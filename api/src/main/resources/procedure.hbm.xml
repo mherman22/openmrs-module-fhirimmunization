@@ -27,11 +27,9 @@
 		<property name="procedureCode" type="java.lang.Double" column="procedure_code" length="50" />
 		<property name="bodySite" type="java.lang.String" length="50" column="body_site" />
 		<property name="outcome" type="java.lang.String" column="out_come" not-null="true" length="50" />
+		<property name="performerOfTheProcedure" type="java.lang.String" column="performer_of_the_Procedure" not-null="true" length="50"/>
 		<many-to-one name="subject" class="org.openmrs.Patient">
 			<column name="subject" />
-		</many-to-one>
-		<many-to-one name="performerOfTheProcedure" class="org.openmrs.User">
-			<column name="performer_of_the_Procedure" />
 		</many-to-one>
 
 		<!--  standard OpenmrsMetaData -->

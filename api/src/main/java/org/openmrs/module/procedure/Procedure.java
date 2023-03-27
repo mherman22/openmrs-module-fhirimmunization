@@ -15,26 +15,31 @@ import org.openmrs.Patient;
 import java.io.Serializable;
 
 /**
- * This resource is used to record the details of current and historical procedures performed on or for a patient.
- * A procedure is an activity that is performed on, with, or for a patient as part of the provision of care.
- * Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy,
- * personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc.
- * Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves.
+ * This resource is used to record the details of current and historical procedures performed on or
+ * for a patient. A procedure is an activity that is performed on, with, or for a patient as part of
+ * the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic
+ * procedures, biopsies, counseling, physiotherapy, personal support services, adult day care
+ * services, non-emergency transportation, home modification, exercise, etc. Procedures may be
+ * performed by a healthcare professional, a service provider, a friend or relative or in some cases
+ * by the patient themselves.
  */
 public class Procedure extends BaseOpenmrsData implements Serializable {
 	
 	private Integer procedureId;
 	
 	/**
-	 *
 	 * Generally, this will be the in-progress or completed state.
-	 * @see <a href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.status">Procedure.status</a>
+	 * 
+	 * @see <a
+	 *      href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.status">Procedure.status</a>
 	 */
 	private String status;
 	
 	/**
 	 * reason for the current status
-	 * @see <a href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a>
+	 * 
+	 * @see <a
+	 *      href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a>
 	 */
 	private String statusReason;
 	
@@ -47,8 +52,7 @@ public class Procedure extends BaseOpenmrsData implements Serializable {
 	private String bodySite;
 	
 	/**
-	 * The outcome of the procedure - did it resolve the reasons for the
-	 * procedure being performed?
+	 * The outcome of the procedure - did it resolve the reasons for the procedure being performed?
 	 */
 	private String outcome;
 	

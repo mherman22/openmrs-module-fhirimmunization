@@ -4,50 +4,30 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
-    <changeSet id="procedure-2023-04-03-12-21" author="mherman22">
+    <changeSet id="procedure-202304031221-1" author="mherman22">
         <preConditions onFail="MARK_RAN">
             <not><tableExists tableName="procedure_tbl"/></not>
         </preConditions>
-        <comment>
-            Creating the procedure_tbl table
-        </comment>
+        <comment>Creating the procedure_tbl table</comment>
         <createTable tableName="procedure_tbl">
-            <column name="procedure_id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="status" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="status_reason" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="category" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
+            <column name="procedure_id" type="int"/>
+            <column name="status" type="VARCHAR(50)"/>
+            <column name="status_reason" type="VARCHAR(255)"/>
+            <column name="category" type="VARCHAR(50)"/>
             <column name="procedure_code" type="VARCHAR(50)"/>
             <column name="body_site" type="VARCHAR(50)"/>
             <column name="out_come" type="VARCHAR(50)"/>
-            <column name="subject" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="performer_of_the_Procedure" type="int">
-                <constraints nullable="false"/>
-            </column>
+            <column name="subject" type="int"/>
+            <column name="performer_of_the_Procedure" type="VARCHAR(50)"/>
             <column name="description" type="VARCHAR(38)"/>
             <column name="creator" type="int"/>
-            <column name="date_created" type="datetime">
-                <constraints nullable="false"/>
-            </column>
+            <column name="date_created" type="datetime"/>
             <column name="changed_by" type="int"/>
             <column name="date_changed" type="datetime"/>
-            <column name="retired" type="boolean">
-                <constraints nullable="false"/>
-            </column>
+            <column name="retired" type="boolean"/>
             <column name="retired_by" type="int"/>
             <column name="date_retired" type="datetime"/>
             <column name="retire_reason" type="VARCHAR(255)"/>
         </createTable>
-        <addForeignKeyConstraint constraintName="procedure_tbl_fk" baseTableName="procedure_tbl" baseColumnNames="subject"  referencedTableName="users"
-                                 referencedColumnNames="user_id" />
     </changeSet>
 </databaseChangeLog>
