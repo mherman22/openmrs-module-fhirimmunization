@@ -11,4 +11,14 @@
 	<packaging>jar</packaging>
 	<name>Procedure API</name>
 	<description>API project for Procedure</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+			<version>${openmrsPlatformVersion}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

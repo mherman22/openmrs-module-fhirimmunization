@@ -53,6 +53,18 @@
 	</pluginRepositories>
 
     <properties>
-        <openmrsPlatformVersion>2.4.0</openmrsPlatformVersion>
+        <openmrsPlatformVersion>2.5.0</openmrsPlatformVersion>
     </properties>
+
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.openmrs.test</groupId>
+			<artifactId>openmrs-test</artifactId>
+			<version>${openmrsPlatformVersion}</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 </project>

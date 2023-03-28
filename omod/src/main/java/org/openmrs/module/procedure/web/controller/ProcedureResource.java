@@ -25,7 +25,7 @@ import org.openmrs.module.webservices.rest.web.resource.impl.MetadataDelegatingC
 import org.openmrs.module.webservices.rest.web.response.ObjectNotFoundException;
 import org.openmrs.module.webservices.rest.web.response.ResponseException;
 
-@Resource(name = RestConstants.VERSION_1 + "/procedure", supportedClass = Procedure.class, supportedOpenmrsVersions = {
+@Resource(name = RestConstants.VERSION_1 + "/procedure" + ProcedureResourceController.PROCEDURE_REST_NAMESPACE, supportedClass = Procedure.class, supportedOpenmrsVersions = {
         "1.9.*", "1.10.*", "1.11.*", "1.12.*", "2.0.*", "2.1.*", "2.2.*", "2.3.*", "2.4.*", "2.5.*" })
 public class ProcedureResource extends MetadataDelegatingCrudResource<Procedure> {
 	
