@@ -15,13 +15,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/rest/" + RestConstants.VERSION_1 + "/procedure")
+@RequestMapping("/rest/" + RestConstants.VERSION_1 + "/procedure" + ProcedureResourceController.PROCEDURE_REST_NAMESPACE)
 public class ProcedureResourceController extends MainResourceController {
+	
+	public static final String PROCEDURE_REST_NAMESPACE = "/procedure";
+	
 	/**
 	 * @see org.openmrs.module.webservices.rest.web.v1_0.controller.BaseRestController#getNamespace()
 	 */
 	@Override
 	public String getNamespace() {
-		return RestConstants.VERSION_1 + "/procedure";
+		return RestConstants.VERSION_1 + PROCEDURE_REST_NAMESPACE;
 	}
 }

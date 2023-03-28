@@ -9,13 +9,16 @@
  */
 package org.openmrs.module.procedure;
 
-import java.util.Map;
-
 import org.junit.Test;
 import org.openmrs.module.Extension;
 import org.openmrs.module.procedure.extension.html.AdminList;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+
+import java.util.Map;
+
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 /**
  * This test validates the AdminList extension class
