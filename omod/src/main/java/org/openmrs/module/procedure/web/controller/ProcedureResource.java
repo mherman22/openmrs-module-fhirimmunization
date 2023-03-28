@@ -16,15 +16,18 @@ import org.openmrs.module.procedure.api.ProcedureService;
 import org.openmrs.module.webservices.rest.web.RequestContext;
 import org.openmrs.module.webservices.rest.web.RestConstants;
 import org.openmrs.module.webservices.rest.web.annotation.Resource;
+import org.openmrs.module.webservices.rest.web.representation.DefaultRepresentation;
+import org.openmrs.module.webservices.rest.web.representation.FullRepresentation;
+import org.openmrs.module.webservices.rest.web.representation.RefRepresentation;
 import org.openmrs.module.webservices.rest.web.representation.Representation;
-import org.openmrs.module.webservices.rest.web.resource.impl.DelegatingCrudResource;
 import org.openmrs.module.webservices.rest.web.resource.impl.DelegatingResourceDescription;
+import org.openmrs.module.webservices.rest.web.resource.impl.MetadataDelegatingCrudResource;
 import org.openmrs.module.webservices.rest.web.response.ObjectNotFoundException;
 import org.openmrs.module.webservices.rest.web.response.ResponseException;
 
 @Resource(name = RestConstants.VERSION_1 + "/procedure", supportedClass = Procedure.class, supportedOpenmrsVersions = {
-        "2.4.*", "2.5.*", "2.6.*" })
-public class ProcedureResource extends DelegatingCrudResource<Procedure> {
+        "1.9.*", "1.10.*", "1.11.*", "1.12.*", "2.0.*", "2.1.*", "2.2.*", "2.3.*", "2.4.*", "2.5.*" })
+public class ProcedureResource extends MetadataDelegatingCrudResource<Procedure> {
 	
 	/**
 	 * gets procedure by unique identifier
@@ -49,7 +52,7 @@ public class ProcedureResource extends DelegatingCrudResource<Procedure> {
 	 * @throws ResponseException
 	 */
 	@Override
-	protected void delete(Procedure procedure, String reason, RequestContext requestContext) throws ResponseException {
+	public void delete(Procedure procedure, String reason, RequestContext requestContext) throws ResponseException {
 		if (Context.getService(ProcedureService.class).getProcedureByProcedureId(procedure.getProcedureId()) == null) {
 			throw new ObjectNotFoundException();
 		} else {
@@ -71,7 +74,8 @@ public class ProcedureResource extends DelegatingCrudResource<Procedure> {
 	 */
 	@Override
 	public Procedure save(Procedure procedure) {
-		return Context.getService(ProcedureService.class).saveProcedure(procedure);
+		Context.getService(ProcedureService.class).saveProcedure(procedure);
+		return procedure;
 	}
 	
 	/**
@@ -90,6 +94,41 @@ public class ProcedureResource extends DelegatingCrudResource<Procedure> {
 	 */
 	@Override
 	public DelegatingResourceDescription getRepresentationDescription(Representation representation) {
+		DelegatingResourceDescription description = new DelegatingResourceDescription();
+		if (representation instanceof DefaultRepresentation || representation instanceof RefRepresentation) {
+			description.addProperty("procedureId");
+			description.addProperty("status");
+			description.addProperty("statusReason");
+			description.addProperty("category");
+			description.addProperty("procedureCode");
+			description.addProperty("performerOfTheProcedure");
+			description.addProperty("bodySite");
+			description.addProperty("outcome");
+			description.addProperty("subject");
+			description.addSelfLink();
+			return description;
+		} else if (representation instanceof FullRepresentation) {
+			description.addProperty("procedureId");
+			description.addProperty("status");
+			description.addProperty("statusReason");
+			description.addProperty("category");
+			description.addProperty("procedureCode");
+			description.addProperty("performerOfTheProcedure");
+			description.addProperty("bodySite");
+			description.addProperty("outcome");
+			description.addProperty("subject");
+			description.addProperty("creator");
+			description.addProperty("dateCreated");
+			description.addProperty("changedBy");
+			description.addProperty("dateChanged");
+			description.addProperty("retired");
+			description.addProperty("retiredBy");
+			description.addProperty("dateRetired");
+			description.addProperty("retireReason");
+			description.addSelfLink();
+			description.addLink("full", ".?v=" + RestConstants.REPRESENTATION_FULL);
+			return description;
+		}
 		return null;
 	}
 }
