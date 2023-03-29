@@ -19,7 +19,6 @@ where OpenMRS is deployed.
 
 Installation
 ============
-
 Option A
 --------
 1. Build the module to produce the .omod file.

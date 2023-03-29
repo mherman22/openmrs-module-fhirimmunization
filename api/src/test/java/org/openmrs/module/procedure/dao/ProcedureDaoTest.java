@@ -9,10 +9,17 @@
  */
 package org.openmrs.module.procedure.dao;
 
-import org.openmrs.api.UserService;
+import org.junit.Test;
+import org.openmrs.Patient;
+import org.openmrs.api.context.Context;
+import org.openmrs.module.procedure.Procedure;
 import org.openmrs.module.procedure.api.dao.ProcedureDao;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * It is an integration test (extends BaseModuleContextSensitiveTest), which verifies DAO methods
@@ -25,29 +32,30 @@ public class ProcedureDaoTest extends BaseModuleContextSensitiveTest {
 	@Autowired
 	ProcedureDao dao;
 	
-	@Autowired
-	UserService userService;
-	
-	//	@Test
-	//	@Ignore("Unignore if you want to make the Item class persistable, see also Item and liquibase.xml")
-	//	public void saveItem_shouldSaveAllPropertiesInDb() {
-	//		//Given
-	//		Item item = new Item();
-	//		item.setDescription("some description");
-	//		item.setOwner(userService.getUser(1));
-	//
-	//		//When
-	//		dao.saveItem(item);
-	//
-	//		//Let's clean up the cache to be sure getItemByUuid fetches from DB and not from cache
-	//		Context.flushSession();
-	//		Context.clearSession();
-	//
-	//		//Then
-	//		Item savedItem = dao.getItemByUuid(item.getUuid());
-	//
-	//		assertThat(savedItem, hasProperty("uuid", is(item.getUuid())));
-	//		assertThat(savedItem, hasProperty("owner", is(item.getOwner())));
-	//		assertThat(savedItem, hasProperty("description", is(item.getDescription())));
-	//	}
+	@Test
+	public void saveProcedure_shouldSaveAllPropertiesInDb() {
+		//Given
+		Procedure procedure = new Procedure();
+		Patient patient = new Patient();
+		procedure.setStatus("pending");
+		procedure.setStatusReason("appointment date is still a week away");
+		procedure.setBodySite("left upper thigh");
+		procedure.setCategory("amputation");
+		procedure.setOutcome("pending");
+		procedure.setProcedureCode("7573");
+		procedure.setPerformerOfTheProcedure("Herman Muhereza");
+		//		procedure.setSubject((Patient) patient.getNames());
+		
+		//When
+		dao.saveProcedure(procedure);
+		Context.flushSession();
+		Context.clearSession();
+		
+		//Then
+		Procedure savedProcedure = dao.getProcedureByProcedureId(Integer.valueOf(procedure.getUuid()));
+		assertThat(savedProcedure, hasProperty("uuid", is(procedure.getUuid())));
+		assertThat(savedProcedure, hasProperty("status", is(procedure.getStatus())));
+		assertThat(savedProcedure, hasProperty("statusReason", is(procedure.getStatusReason())));
+		assertThat(savedProcedure, hasProperty("procedureCode", is(procedure.getProcedureCode())));
+	}
 }
