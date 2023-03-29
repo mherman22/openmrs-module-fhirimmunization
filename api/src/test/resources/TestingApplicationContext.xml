@@ -22,11 +22,5 @@
 		</property>
 		<property name="mappingJarLocations" ref="mappingJarResources"/>
 		<!--  default properties must be set in the hibernate.default.properties -->
-		<property name="packagesToScan">
-		    <list>
-		        <value>org.openmrs</value>
-		    </list>
-		</property>
-	</bean>
-	
+	</bean>	
 </beans>
