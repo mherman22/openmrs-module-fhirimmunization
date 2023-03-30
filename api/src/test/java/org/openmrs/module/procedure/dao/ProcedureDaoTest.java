@@ -9,6 +9,8 @@
  */
 package org.openmrs.module.procedure.dao;
 
+import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -29,30 +31,31 @@ import static org.junit.Assert.assertThat;
  */
 public class ProcedureDaoTest extends BaseModuleContextSensitiveTest {
 	
+	protected static final String PROCEDURE_XML = "org/openmrs/module/procedure/include/ProcedureTestDataset.xml";
+	
 	@Autowired
 	ProcedureDao dao;
+	
+	@Before
+	public void runBeforeEachTest() {
+		executeDataSet(PROCEDURE_XML);
+		System.out.println("procedure_xml is done loading");
+	}
 	
 	@Test
 	public void saveProcedure_shouldSaveAllPropertiesInDb() {
 		//Given
-		Procedure procedure = new Procedure();
-		Patient patient = new Patient();
-		procedure.setStatus("pending");
-		procedure.setStatusReason("appointment date is still a week away");
-		procedure.setBodySite("left upper thigh");
-		procedure.setCategory("amputation");
-		procedure.setOutcome("pending");
-		procedure.setProcedureCode("7573");
-		procedure.setPerformerOfTheProcedure("Herman Muhereza");
-		//		procedure.setSubject((Patient) patient.getNames());
-		
+		Patient subject = new Patient(53);
+		subject.getFamilyName();
+		Procedure procedure = dao.getProcedureByProcedureId(100);
 		//When
 		dao.saveProcedure(procedure);
 		Context.flushSession();
 		Context.clearSession();
 		
 		//Then
-		Procedure savedProcedure = dao.getProcedureByProcedureId(Integer.valueOf(procedure.getUuid()));
+		Procedure savedProcedure = dao.getProcedureByUuid("494B45B8-6E4E-4708-AUFD-5CE77BFCC067");
+		
 		assertThat(savedProcedure, hasProperty("uuid", is(procedure.getUuid())));
 		assertThat(savedProcedure, hasProperty("status", is(procedure.getStatus())));
 		assertThat(savedProcedure, hasProperty("statusReason", is(procedure.getStatusReason())));

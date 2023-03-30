@@ -23,7 +23,7 @@ import java.io.Serializable;
  * performed by a healthcare professional, a service provider, a friend or relative or in some cases
  * by the patient themselves.
  */
-public class Procedure extends BaseChangeableOpenmrsMetadata implements Serializable {
+public class Procedure extends BaseChangeableOpenmrsMetadata {
 	
 	private Integer procedureId;
 	

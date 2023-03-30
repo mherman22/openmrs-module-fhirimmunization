@@ -23,25 +23,25 @@ public class ProcedureDao {
 	@Autowired
 	DbSessionFactory sessionFactory;
 	
-	private DbSession getSession() {
-		return sessionFactory.getCurrentSession();
-	}
-	
 	public Procedure getProcedureByProcedureId(Integer procedureId) {
-		return (Procedure) getSession().createCriteria(Procedure.class).add(Restrictions.eq("procedure_id", procedureId))
-		        .uniqueResult();
+		return (Procedure) sessionFactory.getCurrentSession().get(Procedure.class, procedureId);
 	}
 	
 	public List<Procedure> getAllProcedures() {
-		return getSession().createCriteria(Procedure.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(Procedure.class).list();
 	}
 	
 	public Procedure saveProcedure(Procedure procedure) {
-		getSession().saveOrUpdate(procedure);
+		sessionFactory.getCurrentSession().saveOrUpdate(procedure);
 		return procedure;
 	}
 	
 	public void purgeProcedure(Procedure procedure) {
-		getSession().delete(procedure);
+		sessionFactory.getCurrentSession().delete(procedure);
+	}
+	
+	public Procedure getProcedureByUuid(String uuid) {
+		return (Procedure) this.sessionFactory.getCurrentSession().createQuery("from Procedure p where p.uuid = :uuid")
+		        .setString("uuid", uuid).uniqueResult();
 	}
 }
