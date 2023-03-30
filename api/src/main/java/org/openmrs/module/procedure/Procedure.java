@@ -26,21 +26,9 @@ import java.io.Serializable;
 public class Procedure extends BaseChangeableOpenmrsMetadata {
 	
 	private Integer procedureId;
-	
-	/**
-	 * Generally, this will be the in-progress or completed state.
-	 * 
-	 * @see <a
-	 *      href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.status">Procedure.status</a>
-	 */
+
 	private String status;
-	
-	/**
-	 * reason for the current status
-	 * 
-	 * @see <a
-	 *      href="https://www.hl7.org/fhir/procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a>
-	 */
+
 	private String statusReason;
 	
 	private String category;
@@ -51,14 +39,8 @@ public class Procedure extends BaseChangeableOpenmrsMetadata {
 	
 	private String bodySite;
 	
-	/**
-	 * The outcome of the procedure - did it resolve the reasons for the procedure being performed?
-	 */
 	private String outcome;
-	
-	/**
-	 * The person, animal or group on which the procedure was performed.
-	 */
+
 	private Patient subject;
 	
 	public Procedure() {
