@@ -11,7 +11,8 @@ package org.openmrs.module.procedure;
 
 public class RestTestConstants {
 	
-	public final static String PROCEDURE_UUID = "3a2bdb18-6faa-11e0-8414-001e378eb67e";
+	public final static String PROCEDURE_UUID = "494B45B8-6E4E-4708-AUFD-5CE77BFCC067";
 	
-	public static final String PROCEDURE_DATA_XML = "procedureDataSet.xml";
+	public static final String PROCEDURE_DATA_XML = "org/openmrs/module/procedure/include/ProcedureTestDataset.xml";
+	
 }
