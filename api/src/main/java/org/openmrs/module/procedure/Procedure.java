@@ -26,9 +26,9 @@ import java.io.Serializable;
 public class Procedure extends BaseChangeableOpenmrsMetadata {
 	
 	private Integer procedureId;
-
+	
 	private String status;
-
+	
 	private String statusReason;
 	
 	private String category;
@@ -40,7 +40,7 @@ public class Procedure extends BaseChangeableOpenmrsMetadata {
 	private String bodySite;
 	
 	private String outcome;
-
+	
 	private Patient subject;
 	
 	public Procedure() {

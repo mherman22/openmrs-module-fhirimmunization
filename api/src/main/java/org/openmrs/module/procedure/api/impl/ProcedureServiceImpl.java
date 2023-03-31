@@ -51,6 +51,14 @@ public class ProcedureServiceImpl extends BaseOpenmrsService implements Procedur
 		return dao.getProcedureByProcedureId(procedureId);
 	}
 	
+	@Override
+	public Procedure getProcedureByUuid(String uuid) throws APIException {
+		if (uuid == null) {
+			throw new ResourceNotFoundException("procedure with given uuid " + uuid + " not found");
+		}
+		return dao.getProcedureByUuid(uuid);
+	}
+	
 	/**
 	 * @see ProcedureDao#getAllProcedures()
 	 */

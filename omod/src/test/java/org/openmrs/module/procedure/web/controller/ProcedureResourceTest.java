@@ -10,18 +10,9 @@ import org.openmrs.module.webservices.rest.web.resource.impl.BaseDelegatingResou
 public class ProcedureResourceTest extends BaseDelegatingResourceTest<ProcedureResource, Procedure> {
 	
 	@Before
-	public void before() throws Exception {
+	public void executeBeforeEachTest() throws Exception {
 		executeDataSet(RestTestConstants.PROCEDURE_DATA_XML);
-	}
-	
-	@Override
-	public Procedure newObject() {
-		return Context.getService(ProcedureService.class).getProcedureByProcedureId(Integer.valueOf(getUuidProperty()));
-	}
-	
-	@Override
-	public String getDisplayProperty() {
-		return "";
+		System.out.println("loading of the dataset is done");
 	}
 	
 	@Override
@@ -30,8 +21,44 @@ public class ProcedureResourceTest extends BaseDelegatingResourceTest<ProcedureR
 	}
 	
 	@Override
+	public Procedure newObject() {
+		return Context.getService(ProcedureService.class).getProcedureByUuid(getUuidProperty());
+	}
+	
+	@Override
+	public String getDisplayProperty() {
+		return "maluge";
+	}
+	
+	@Override
 	public void validateDefaultRepresentation() throws Exception {
 		super.validateDefaultRepresentation();
-		assertPropPresent("uuid");
+		assertPropPresent("procedureId");
+		assertPropPresent("status");
+		assertPropPresent("statusReason");
+		assertPropPresent("category");
+		assertPropPresent("procedureCode");
+		assertPropPresent("performerOfTheProcedure");
+		assertPropPresent("bodySite");
+		assertPropPresent("outcome");
+		assertPropPresent("subject");
+	}
+	
+	@Override
+	public void validateFullRepresentation() throws Exception {
+		super.validateFullRepresentation();
+		assertPropPresent("procedureId");
+		assertPropPresent("status");
+		assertPropPresent("statusReason");
+		assertPropPresent("category");
+		assertPropPresent("procedureCode");
+		assertPropPresent("performerOfTheProcedure");
+		assertPropPresent("bodySite");
+		assertPropPresent("outcome");
+		assertPropPresent("subject");
+		assertPropPresent("creator");
+		assertPropPresent("dateCreated");
+		assertPropPresent("retired");
+		assertPropPresent("retireReason");
 	}
 }

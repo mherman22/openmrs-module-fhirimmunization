@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    This Source Code Form is subject to the terms of the Mozilla Public License,
+    v. 2.0. If a copy of the MPL was not distributed with this file, You can
+    obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+    the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+    Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+    graphic logo is a trademark of OpenMRS Inc.
+-->
+<dataset>
+	<person person_id="53" gender="M" birthdate="1984-09-30 00:00:00.0" birthdate_estimated="0" dead="false" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" uuid="494B57B8-6E4E-4708-AEFD-5CE77BFCC167"/>
+	<person person_id="54" gender="M" birthdate="1985-09-30 00:00:00.0" birthdate_estimated="0" dead="false" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" uuid="EB7105FF-3FB8-4806-A4E5-83ECD2F45BDC"/>
+	<person person_id="55" gender="M" birthdate="1986-09-30 00:00:00.0" birthdate_estimated="0" dead="false" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" uuid="2F1BA158-C13C-4FA5-A902-F81E5B5D4994"/>
+
+	<person_name person_name_id="53" preferred="true" person_id="53" prefix="Mr." given_name="smith" middle_name="john" family_name="maluge" family_name2="buyaga" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" void_reason="" uuid="F77E220E-06B8-43F3-B3A9-26810ABFAEE0"/>
+	<person_name person_name_id="54" preferred="true" person_id="54" prefix="Mr." given_name="kunta" middle_name="kinte" family_name="ju" family_name2="no" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" void_reason="" uuid="8F522FFD-7203-4015-84E6-5342CD79CE80"/>
+	<person_name person_name_id="55" preferred="true" person_id="55" prefix="Mr." given_name="br" middle_name="fo" family_name="ki" family_name2="os" creator="1" date_created="2013-12-27 00:00:00.0" voided="false" void_reason="" uuid="55EEBFA4-345A-45A2-A871-43FA95C47389"/>
+
+	<!--
+	Patients referring to persons above
+    -->
+	<patient patient_id="53" creator="1" date_created="2013-12-27" changed_by="1" voided="false" void_reason=""/>
+	<patient patient_id="54" creator="1" date_created="2013-12-27" changed_by="1" voided="false" void_reason=""/>
+	<patient patient_id="55" creator="1" date_created="2013-12-27" changed_by="1" voided="false" void_reason=""/>
+
+	<procedure_tbl procedure_id="100" status="pending" status_reason="doctor not available" category="burns" procedure_code="5687" performer_of_the_Procedure="Herman" body_site="arm" out_come="pending" subject="53" uuid="494B45B8-6E4E-4708-AUFD-5CE77BFCC067" creator="1" date_created="2023-01-01 00:00:00.0" retired="false" retire_reason=""/>
+	<procedure_tbl procedure_id="101" status="completed" status_reason="surgery is done" category="burns" procedure_code="5687" performer_of_the_Procedure="Herman" body_site="arm" out_come="went well" subject="54" uuid="494B12B8-6E4E-4708-AZFD-5CE77BFAVC467" creator="1" date_created="2023-01-01 00:00:00.0" retired="false" retire_reason=""/>
+	<procedure_tbl procedure_id="102" status="pending" status_reason="doctor busy" category="burns" procedure_code="5687" performer_of_the_Procedure="Herman" body_site="arm" out_come="pending" subject="55" uuid="494B12B8-6E4E-4708-AEFD-5CE77BFCC467" creator="1" date_created="2023-01-01 00:00:00.0" retired="false" retire_reason=""/>
+</dataset>

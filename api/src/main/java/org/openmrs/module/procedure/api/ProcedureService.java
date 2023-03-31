@@ -36,6 +36,10 @@ public interface ProcedureService extends OpenmrsService {
 	@Transactional(readOnly = true)
 	Procedure getProcedureByProcedureId(Integer procedureId) throws APIException;
 	
+	@Authorized()
+	@Transactional(readOnly = true)
+	Procedure getProcedureByUuid(String uuid) throws APIException;
+	
 	/**
 	 * returns all the procedures that have been created.
 	 * 
