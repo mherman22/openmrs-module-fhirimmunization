@@ -38,11 +38,12 @@ jobs:
         distribution: 'adopt'
         java-version: ${{ matrix.java-version }}
         cache: maven
-    - name: Build (Maven)
-      run: mvn clean install -DskipTests=true
-    - name: Run tests and collect coverage
-      run: mvn -B test
+    - name: Build with Maven
+      id: build_with_maven
+      run: mvn clean install
+    - uses: actions/upload-artifact@v3
+
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v3 codecov/codecov-action@v1
       with:
           env_vars: PLATFORM, JAVA_VERSION
