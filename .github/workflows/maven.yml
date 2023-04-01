@@ -38,10 +38,15 @@ jobs:
         distribution: 'adopt'
         java-version: ${{ matrix.java-version }}
         cache: maven
-    - name: Build (Maven)
+    - name: Build with Maven
+      id: build_with_maven
       run: mvn clean install
+    - uses: actions/upload-artifact@v3
+      with:
+          name: build_artifact
+          path: ${{ github.workspace }}/omod/target
 
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v1
       with:
           env_vars: PLATFORM, JAVA_VERSION
