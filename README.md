@@ -1,4 +1,4 @@
-openmrs-module-procedure
+openmrs-module-procedure(wip)
 =================================
 
 A [Procedure](https://www.hl7.org/fhir/procedure.html) is an action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
