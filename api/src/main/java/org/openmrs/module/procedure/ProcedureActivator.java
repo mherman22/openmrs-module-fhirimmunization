@@ -19,17 +19,11 @@ import org.openmrs.module.BaseModuleActivator;
 public class ProcedureActivator extends BaseModuleActivator {
 	
 	private Log log = LogFactory.getLog(this.getClass());
-	
-	/**
-	 * @see #started()
-	 */
+
 	public void started() {
 		log.info("Started Procedure");
 	}
-	
-	/**
-	 * @see #shutdown()
-	 */
+
 	public void shutdown() {
 		log.info("Shutdown Procedure");
 	}
